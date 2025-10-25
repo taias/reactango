@@ -16,8 +16,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import JsonResponse
+
+
+def api_root(request):
+    """API ルート - 利用可能なエンドポイント一覧"""
+    return JsonResponse({
+        'message': 'Reactango API',
+        'version': '1.0',
+        'endpoints': {
+            'admin': '/admin/',
+            'api': {
+                'users_list': '/api/v1/users/',
+                'user_detail': '/api/v1/users/{id}/',
+            }
+        }
+    })
+
 
 urlpatterns = [
+    path('', api_root, name='api-root'),
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls')),
+    path('api/v1/', include('_fw.presentation.urls')),
 ]
