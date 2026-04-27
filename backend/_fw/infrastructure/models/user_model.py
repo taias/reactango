@@ -8,6 +8,7 @@ from django.db import models
 class UserModel(models.Model):
     """ユーザーのORMモデル"""
     
+    code = models.CharField(max_length=50, unique=True, verbose_name="ユーザーコード")
     name = models.CharField(max_length=100, verbose_name="名前")
     email = models.EmailField(unique=True, verbose_name="メールアドレス")
     favorite_food = models.CharField(max_length=100, blank=True, null=True, verbose_name="好きな食べ物")
@@ -21,4 +22,4 @@ class UserModel(models.Model):
         verbose_name_plural = "ユーザー"
 
     def __str__(self):
-        return f"{self.name} ({self.email})"
+        return f"{self.code}: {self.name} ({self.email})"

@@ -4,16 +4,22 @@ User Entity - ユーザーエンティティ
 """
 from _fw.domain.base_entity import BaseEntity
 from _fw.domain.value_objects.email import Email
+from _fw.domain.value_objects.code import Code
 
 
 class User(BaseEntity):
     """ユーザーエンティティ"""
 
-    def __init__(self, id, name: str, email: str, favorite_food: str = None):
+    def __init__(self, id, code: str, name: str, email: str, favorite_food: str = None):
         super().__init__(id)
+        self._code = Code(code) if code else None
         self._name = name
         self._email = Email(email)
         self._favorite_food = favorite_food
+
+    @property
+    def code(self) -> Code:
+        return self._code
 
     @property
     def name(self) -> str:
@@ -45,11 +51,12 @@ class User(BaseEntity):
         self._update_timestamp()
 
     @classmethod
-    def create(cls, name: str, email: str, favorite_food: str = None):
+    def create(cls, code: str, name: str, email: str, favorite_food: str = None):
         """
         新規ユーザーを作成するファクトリメソッド
         
         Args:
+            code: ユーザーコード（一意）
             name: ユーザー名
             email: メールアドレス
             favorite_food: 好きな食べ物（オプション）
@@ -60,12 +67,14 @@ class User(BaseEntity):
         Raises:
             ValueError: バリデーションエラー
         """
+        if not code or len(code.strip()) == 0:
+            raise ValueError("Code is required")
         if not name or len(name.strip()) == 0:
             raise ValueError("Name is required")
         if not email or len(email.strip()) == 0:
             raise ValueError("Email is required")
         
-        return cls(id=None, name=name, email=email, favorite_food=favorite_food)
+        return cls(id=None, code=code, name=name, email=email, favorite_food=favorite_food)
 
     @classmethod
     def from_orm(cls, model):
@@ -80,6 +89,7 @@ class User(BaseEntity):
         """
         user = cls(
             id=model.id,
+            code=model.code,
             name=model.name,
             email=model.email,
             favorite_food=model.favorite_food
@@ -96,6 +106,7 @@ class User(BaseEntity):
             dict: ORMモデルに渡すデータ
         """
         return {
+            'code': self._code.value if self._code else None,
             'name': self._name,
             'email': self._email.value,
             'favorite_food': self._favorite_food,
@@ -110,6 +121,7 @@ class User(BaseEntity):
         """
         return {
             'id': self.id,
+            'code': self._code.value if self._code else None,
             'name': self._name,
             'email': self._email.value,
             'favorite_food': self._favorite_food,
@@ -130,10 +142,11 @@ class User(BaseEntity):
         """
         return cls(
             id=data.get('id'),
+            code=data.get('code'),
             name=data['name'],
             email=data['email'],
             favorite_food=data.get('favorite_food')
         )
 
     def __repr__(self):
-        return f"User(id={self.id}, name={self.name}, email={self.email.value}, favorite_food={self.favorite_food})"
+        return f"User(id={self.id}, code={self._code}, name={self.name}, email={self.email.value}, favorite_food={self.favorite_food})"

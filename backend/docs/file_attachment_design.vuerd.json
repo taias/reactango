@@ -1,0 +1,705 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": 0,
+    "scrollLeft": 0,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "PostgreSQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "files",
+        "comment": "ファイル実体テーブル",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "ID",
+            "dataType": "BIGINT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col1"
+          },
+          {
+            "name": "file_name",
+            "comment": "ファイル名（保存時の名前）",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 134.62890625,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col2"
+          },
+          {
+            "name": "original_name",
+            "comment": "元のファイル名",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 83.7744140625,
+              "widthComment": 90.06640625,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col3"
+          },
+          {
+            "name": "file_path",
+            "comment": "ファイルパス",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 73.505859375,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col4"
+          },
+          {
+            "name": "file_size",
+            "comment": "ファイルサイズ（bytes）",
+            "dataType": "BIGINT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 130.1904296875,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col5"
+          },
+          {
+            "name": "mime_type",
+            "comment": "MIMEタイプ",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 64.78857421875,
+              "widthComment": 76.2236328125,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col6"
+          },
+          {
+            "name": "file_hash",
+            "comment": "ファイルハッシュ（SHA256）",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 148.7685546875,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col7"
+          },
+          {
+            "name": "uploaded_by",
+            "comment": "アップロードユーザーID",
+            "dataType": "BIGINT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 75.140625,
+              "widthComment": 136.908203125,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col8"
+          },
+          {
+            "name": "created_at",
+            "comment": "作成日時",
+            "dataType": "TIMESTAMP",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 63.4326171875,
+              "widthComment": 60,
+              "widthDataType": 68.01904296875,
+              "widthDefault": 60
+            },
+            "id": "col9"
+          },
+          {
+            "name": "updated_at",
+            "comment": "更新日時",
+            "dataType": "TIMESTAMP",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 67.72998046875,
+              "widthComment": 60,
+              "widthDataType": 68.01904296875,
+              "widthDefault": 60
+            },
+            "id": "col10"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 50,
+          "top": 50,
+          "zIndex": 1,
+          "widthName": 60,
+          "widthComment": 110.44921875,
+          "color": "#FF9800"
+        },
+        "visible": true,
+        "id": "table1"
+      },
+      {
+        "name": "file_attachments",
+        "comment": "ファイル添付テーブル（リソース紐付け）",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "ID",
+            "dataType": "BIGINT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col11"
+          },
+          {
+            "name": "file_id",
+            "comment": "ファイルID",
+            "dataType": "BIGINT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col12"
+          },
+          {
+            "name": "resource_type",
+            "comment": "リソースタイプ",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 87.0634765625,
+              "widthComment": 95.28125,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col13"
+          },
+          {
+            "name": "entity_id",
+            "comment": "エンティティID",
+            "dataType": "BIGINT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 85.37109375,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col14"
+          },
+          {
+            "name": "attachment_type",
+            "comment": "添付タイプ（main, sub, thumbnail等）",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 99.0087890625,
+              "widthComment": 200,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col15"
+          },
+          {
+            "name": "display_order",
+            "comment": "表示順序",
+            "dataType": "INTEGER",
+            "default": "0",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 82.41943359375,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col16"
+          },
+          {
+            "name": "metadata",
+            "comment": "メタデータ（JSON）",
+            "dataType": "JSONB",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 114.736328125,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col17"
+          },
+          {
+            "name": "created_at",
+            "comment": "作成日時",
+            "dataType": "TIMESTAMP",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 63.4326171875,
+              "widthComment": 60,
+              "widthDataType": 68.01904296875,
+              "widthDefault": 60
+            },
+            "id": "col18"
+          },
+          {
+            "name": "updated_at",
+            "comment": "更新日時",
+            "dataType": "TIMESTAMP",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 67.72998046875,
+              "widthComment": 60,
+              "widthDataType": 68.01904296875,
+              "widthDefault": 60
+            },
+            "id": "col19"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 50,
+          "top": 500,
+          "zIndex": 2,
+          "widthName": 99.98779296875,
+          "widthComment": 200,
+          "color": "#FF9800"
+        },
+        "visible": true,
+        "id": "table2"
+      },
+      {
+        "name": "Resource（概念）",
+        "comment": "※実テーブルなし。概念的な設計のみ",
+        "columns": [
+          {
+            "name": "resource_type",
+            "comment": "リソースタイプ（例: user, order, post）",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 87.0634765625,
+              "widthComment": 200,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col20"
+          },
+          {
+            "name": "entity_id",
+            "comment": "エンティティID（実際のレコードID）",
+            "dataType": "BIGINT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 189.1611328125,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "col21"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 650,
+          "top": 500,
+          "zIndex": 3,
+          "widthName": 102.25390625,
+          "widthComment": 200,
+          "color": "#9E9E9E"
+        },
+        "visible": true,
+        "id": "table3"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "idx_file_hash",
+        "table": "table1",
+        "columns": [
+          {
+            "id": "col7"
+          }
+        ],
+        "unique": false,
+        "id": "idx1"
+      },
+      {
+        "name": "idx_file_attachments_resource",
+        "table": "table2",
+        "columns": [
+          {
+            "id": "col13"
+          },
+          {
+            "id": "col14"
+          }
+        ],
+        "unique": false,
+        "id": "idx2"
+      },
+      {
+        "name": "idx_file_attachments_file",
+        "table": "table2",
+        "columns": [
+          {
+            "id": "col12"
+          }
+        ],
+        "unique": false,
+        "id": "idx3"
+      }
+    ]
+  },
+  "memo": {
+    "memos": [
+      {
+        "value": "【ファイル添付共通機能の設計】\n\n■ 構成\n1. files: ファイル実体（物理ファイルとメタデータ）\n2. file_attachments: リソースとファイルの紐付け\n3. Resource: 概念的な設計（実テーブルなし）\n\n■ リソースの識別方法\n- resource_type: リソースタイプ（'user', 'order', 'post'等）\n- entity_id: 対象エンティティのID\n\n例:\n- ユーザー: resource_type='user', entity_id=123\n- 注文: resource_type='order', entity_id=456\n- 投稿: resource_type='post', entity_id=789",
+        "ui": {
+          "active": false,
+          "left": 650,
+          "top": 50,
+          "zIndex": 4,
+          "width": 450,
+          "color": "#4CAF50"
+        },
+        "id": "memo1"
+      },
+      {
+        "value": "■ 特徴\n- 1つのファイルを複数リソースで共有可能\n- attachment_typeで用途を分類\n- display_orderで表示順を制御\n- metadataで拡張可能（alt text, caption等）\n- file_hashで重複ファイルを検出可能\n\n■ 外部キー制約\n- file_attachments.file_id → files.id（あり）\n- resource_type + entity_id → 実テーブル（なし）\n  ※概念的な参照のため制約は設けない",
+        "ui": {
+          "active": false,
+          "left": 650,
+          "top": 300,
+          "zIndex": 5,
+          "width": 450,
+          "color": "#FFB74D"
+        },
+        "id": "memo2"
+      }
+    ]
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "table1",
+          "columnIds": [
+            "col1"
+          ],
+          "x": 400,
+          "y": 400,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "table2",
+          "columnIds": [
+            "col12"
+          ],
+          "x": 400,
+          "y": 500,
+          "direction": "top"
+        },
+        "constraintName": "fk_file_attachments_file",
+        "visible": true,
+        "id": "rel1"
+      },
+      {
+        "identification": false,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "table3",
+          "columnIds": [
+            "col20",
+            "col21"
+          ],
+          "x": 650,
+          "y": 595,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "table2",
+          "columnIds": [
+            "col13",
+            "col14"
+          ],
+          "x": 550,
+          "y": 650,
+          "direction": "right"
+        },
+        "constraintName": "概念的な参照（外部キーなし）",
+        "visible": true,
+        "id": "rel2"
+      }
+    ]
+  }
+}
