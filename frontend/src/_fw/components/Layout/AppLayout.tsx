@@ -6,6 +6,7 @@ import {
     Category as CategoryIcon,
     Home as HomeIcon,
     People as PeopleIcon,
+    Assignment as AssignmentIcon,
 } from '@mui/icons-material';
 import {
     AppBar,
@@ -31,6 +32,7 @@ export function AppLayout({ children }) {
 
   const menuItems = [
     { text: 'Dashboard', icon: <HomeIcon />, path: '/', divider: false },
+    { text: 'タスク管理', icon: <AssignmentIcon />, path: '/tasks', divider: false },
     { text: 'ユーザー管理', icon: <PeopleIcon />, path: '/users', divider: true },
     { text: 'プロジェクト機能', icon: <CategoryIcon />, path: '#', disabled: true, divider: false },
   ];

@@ -4,6 +4,7 @@ import { AppLayout } from './_fw/components/Layout/AppLayout';
 import { Dashboard } from './_fw/features/dashboard';
 import { UserDetails } from './_fw/features/users/details/UserDetails';
 import { UserList } from './_fw/features/users/list/UserList';
+import { TaskBoard } from './_fw/features/tasks';
 
 const theme = createTheme({
   palette: {
@@ -88,6 +89,7 @@ function App() {
         <AppLayout>
           <Routes>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/tasks" element={<TaskBoard />} />
             <Route path="/users" element={<UserList />} />
             <Route path="/users/:id" element={<UserDetails />} />
           </Routes>

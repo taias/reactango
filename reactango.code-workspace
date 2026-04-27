@@ -1,0 +1,129 @@
+{
+  "folders": [
+    {
+      "name": "📦 Reactango (Root)",
+      "path": "."
+    },
+    {
+      "name": "🐍 Backend (Django)",
+      "path": "backend"
+    },
+    {
+      "name": "⚛️ Frontend (React/Vite)",
+      "path": "frontend"
+    },
+    {
+      "name": "📖 Docs (Agents & Skills)",
+      "path": "docs"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/*.pyc": true,
+      "**/node_modules": true,
+      "**/.git": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/__pycache__": true,
+      "**/dist": true,
+      "**/venv": true
+    },
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "[python]": {
+      "editor.tabSize": 4
+    },
+    "typescript.tsdk": "frontend/node_modules/typescript/lib"
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "🚀 Backend: Django runserver",
+        "type": "shell",
+        "command": "venv\\Scripts\\python manage.py runserver 8000",
+        "options": {
+          "cwd": "${workspaceFolder:🐍 Backend (Django)}"
+        },
+        "isBackground": true,
+        "problemMatcher": [],
+        "group": "build",
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated",
+          "group": "servers"
+        }
+      },
+      {
+        "label": "⚛️ Frontend: Vite dev server",
+        "type": "shell",
+        "command": "npm run dev",
+        "options": {
+          "cwd": "${workspaceFolder:⚛️ Frontend (React/Vite)}"
+        },
+        "isBackground": true,
+        "problemMatcher": [],
+        "group": "build",
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated",
+          "group": "servers"
+        }
+      },
+      {
+        "label": "🚀 Start All Servers",
+        "dependsOn": [
+          "🚀 Backend: Django runserver",
+          "⚛️ Frontend: Vite dev server"
+        ],
+        "dependsOrder": "parallel",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "🗄️ Django: makemigrations",
+        "type": "shell",
+        "command": "venv\\Scripts\\python manage.py makemigrations",
+        "options": {
+          "cwd": "${workspaceFolder:🐍 Backend (Django)}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "🗄️ Django: migrate",
+        "type": "shell",
+        "command": "venv\\Scripts\\python manage.py migrate",
+        "options": {
+          "cwd": "${workspaceFolder:🐍 Backend (Django)}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "🔨 Frontend: Build",
+        "type": "shell",
+        "command": "npm run build",
+        "options": {
+          "cwd": "${workspaceFolder:⚛️ Frontend (React/Vite)}"
+        },
+        "problemMatcher": []
+      }
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "🌐 Open Frontend (Browser)",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:5173",
+        "webRoot": "${workspaceFolder:⚛️ Frontend (React/Vite)}/src"
+      }
+    ]
+  }
+}
